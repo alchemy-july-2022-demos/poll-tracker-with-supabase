@@ -8,10 +8,20 @@ let optionB = '';
 
 createForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    // update our state from our form data
     const data = new FormData(createForm);
     question = data.get('quest');
     optionA = data.get('option-a');
     optionB = data.get('option-b');
+    // call displayCurrentPoll
+    displayCurrentPoll();
 });
-// update our state from our form data
-// call displayCurrentPoll
+
+function displayCurrentPoll() {
+    const questionElem = document.getElementById('question');
+    questionElem.textContent = question;
+    const optionAElem = document.getElementById('option-a');
+    optionAElem.textContent = optionA;
+    const optionBElem = document.getElementById('option-b');
+    optionBElem.textContent = optionB;
+}
