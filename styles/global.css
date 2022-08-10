@@ -28,8 +28,18 @@ footer {
     position: sticky;
     bottom: 0;
     padding: 7px 20px;
-    font-size: .8em;
+    font-size: 0.8em;
     display: flex;
     justify-content: flex-end;
     background-color: var(--footer-background);
+}
+
+#options {
+    display: flex;
+    flex-direction: row;
+}
+.option {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
 }
