@@ -1,7 +1,10 @@
+import { createNewPoll } from './fetch-utils.js';
+
 // grab our form
 const createForm = document.getElementById('create-poll');
 const voteA = document.getElementById('vote-a');
 const voteB = document.getElementById('vote-b');
+const closePoll = document.getElementById('close-poll');
 
 // initialize our state
 let question = '';
@@ -29,6 +32,8 @@ function displayCurrentPoll() {
     optionAElem.textContent = optionA;
     const optionBElem = document.getElementById('option-b');
     optionBElem.textContent = optionB;
+    voteA.textContent = optionAVotes;
+    voteB.textContent = optionBVotes;
 }
 
 // Voting Functionality
@@ -44,4 +49,28 @@ voteA.addEventListener('click', () => {
 voteB.addEventListener('click', () => {
     optionBVotes++;
     voteB.textContent = optionBVotes;
+});
+
+// Close Poll Functionality
+// add event listener to close poll button
+// bundle up our state
+// send our state to supabase
+// reset our state
+// call displayCurrentPoll
+// call displayPolls
+closePoll.addEventListener('click', async () => {
+    const data = {
+        question,
+        option_a: optionA,
+        option_b: optionB,
+        option_a_votes: optionAVotes,
+        option_b_votes: optionBVotes,
+    };
+    const resp = await createNewPoll(data);
+    question = '';
+    optionA = '';
+    optionB = '';
+    optionAVotes = 0;
+    optionBVotes = 0;
+    displayCurrentPoll();
 });
