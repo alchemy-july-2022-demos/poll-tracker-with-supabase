@@ -67,7 +67,7 @@ columns: option_a_votes, option_b_votes, option_a, option_b, question
 ## Plan of Attack
 
 -   [x] Setup my HTML skeleton plus enough CSS to not drive myself crazy (ACP)
--   [ ] Form submit and getting the question data to display (ACP)
+-   [x] Form submit and getting the question data to display (ACP)
 -   [ ] Get the voting working (ACP)
 -   [ ] Create my supabase table
 -   [ ] Get close poll button working -- submitting info to supabase (ACP)
