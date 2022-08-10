@@ -12,3 +12,12 @@ export async function createNewPoll(data) {
     }
     return resp.data;
 }
+
+export async function getPolls() {
+    const resp = await client.from('polls').select('*');
+    console.log('resp', resp);
+    if (resp.error) {
+        throw new Error(resp.error.message);
+    }
+    return resp.data;
+}

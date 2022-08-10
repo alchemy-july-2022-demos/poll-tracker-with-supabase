@@ -1,4 +1,5 @@
-import { createNewPoll } from './fetch-utils.js';
+import { createNewPoll, getPolls } from './fetch-utils.js';
+import { renderPoll } from './render-utils.js';
 
 // grab our form
 const createForm = document.getElementById('create-poll');
@@ -73,4 +74,20 @@ closePoll.addEventListener('click', async () => {
     optionAVotes = 0;
     optionBVotes = 0;
     displayCurrentPoll();
+    displayPolls();
 });
+
+// Display Polls Functionality
+// fetch our list of polls from supabase
+// call renderPoll function for each poll
+async function displayPolls() {
+    const pollList = document.getElementById('poll-list');
+    pollList.textContent = '';
+    const polls = await getPolls();
+    for (let poll of polls) {
+        const div = renderPoll(poll);
+        pollList.append(div);
+    }
+}
+
+displayPolls();

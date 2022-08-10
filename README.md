@@ -70,5 +70,5 @@ columns: option_a_votes, option_b_votes, option_a, option_b, question
 -   [x] Form submit and getting the question data to display (ACP)
 -   [x] Get the voting working (ACP)
 -   [x] Create my supabase table
--   [ ] Get close poll button working -- submitting info to supabase (ACP)
+-   [x] Get close poll button working -- submitting info to supabase (ACP)
 -   [ ] Get list of polls displaying (ACP)
